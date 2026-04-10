@@ -4,7 +4,7 @@ const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('gs-theme') || 'dark';
+    return localStorage.getItem('gs-theme') || 'light';
   });
 
   useEffect(() => {
