@@ -22,6 +22,11 @@ const VARIANTS = {
     title: 'Explore GitHub',
     message: 'Search for any GitHub user to view their profile and repositories.',
   },
+  bookmarks: {
+    emoji: '🔖',
+    title: 'No bookmarks yet',
+    message: 'Explore GitHub profiles and click the bookmark icon on repositories you want to save for later.',
+  },
 };
 
 const EmptyState = ({ variant = 'initial', customMessage }) => {

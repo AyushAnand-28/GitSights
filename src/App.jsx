@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { BookmarkProvider } from './context/BookmarkContext';
 import Home from './pages/Home';
 import UserRepos from './pages/UserRepos';
+import Bookmarks from './pages/Bookmarks';
 import styles from './App.module.css';
 
 const SunIcon = () => (
@@ -20,22 +21,37 @@ const MoonIcon = () => (
   </svg>
 );
 
+const BookmarkIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" />
+  </svg>
+);
+
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <header className={styles.navbar}>
-      <a href="/" className={styles.brand} aria-label="GitSights Home">
+      <Link to="/" className={styles.brand} aria-label="GitSights Home">
         <img src="/favicon.png" alt="GitSights Logo" className={styles.logo} />
         <span>Git<strong>Sights</strong></span>
-      </a>
-      <button
-        className={styles.themeToggle}
-        onClick={toggleTheme}
-        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-        type="button"
-      >
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-      </button>
+      </Link>
+      <div className={styles.navActions}>
+        <Link 
+          to="/bookmarks" 
+          className={styles.iconBtn} 
+          aria-label="View bookmarked repositories"
+        >
+          <BookmarkIcon />
+        </Link>
+        <button
+          className={styles.iconBtn}
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          type="button"
+        >
+          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+        </button>
+      </div>
     </header>
   );
 };
@@ -47,6 +63,7 @@ const AppShell = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user/:username" element={<UserRepos />} />
+        <Route path="/bookmarks" element={<Bookmarks />} />
       </Routes>
     </div>
   </div>

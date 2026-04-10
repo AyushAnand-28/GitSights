@@ -38,7 +38,13 @@
   object-fit: contain;
 }
 
-.themeToggle {
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconBtn {
   background: var(--card-bg);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -50,9 +56,10 @@
   align-items: center;
   justify-content: center;
   transition: color 0.2s, border-color 0.2s, transform 0.15s, background 0.2s;
+  text-decoration: none;
 }
 
-.themeToggle:hover {
+.iconBtn:hover {
   color: var(--text-primary);
   border-color: var(--accent-dim);
   transform: rotate(15deg);
