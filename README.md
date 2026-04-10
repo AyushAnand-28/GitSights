@@ -1,16 +1,67 @@
-# React + Vite
+# GitSights
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GitSights is a feature-rich, high-fidelity React application designed for discovering and searching GitHub profiles and their repositories. It focuses on providing a clean, responsive, and visually appealing user interface with a custom Sage & Warm Gray color palette.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **GitHub Profile Search:** Seamlessly search for GitHub users and view their profiles.
+*   **Repository Dashboard:** Detailed view of a user's repositories with advanced sorting, filtering, and pagination.
+*   **Custom UI Components:** High-fidelity, reusable components like `UserCard`, `RepoCard`, `SearchBar`, and custom dropdowns without sharp edges.
+*   **Theming & State:** Robust global state management for theming (Light/Dark mode) and bookmarked repositories.
+*   **Responsive Design:** Fully responsive layout, adapting to desktop, tablet, and mobile screens.
+*   **Error Handling & Feedback:** Elegant loading states (Loaders), Empty States, and Error handling for a polished user experience.
 
-## React Compiler
+## Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Frontend Framework:** React 19 + Vite
+*   **Routing:** React Router v7
+*   **Styling:** Pure CSS Modules (`.module.css`) for scoped, conflict-free styling. Custom CSS Variables for theming.
+*   **API:** GitHub REST API
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **/src/components:** Reusable UI components (`UserCard`, `RepoCard`, `SearchBar`, `CustomSelect`, `Loader`, etc.)
+*   **/src/pages:** Main application views (`Home`, `UserRepos`)
+*   **/src/context:** Global state context (`ThemeContext`, `BookmarkContext`)
+*   **/src/services:** API interaction logic (`githubService`)
+*   **/src/hooks:** Custom React hooks (`useFetch`, `useDebounce`)
+*   **/src/utils:** Helper functions (sorting, formatting, filtering)
+*   **/src/assets:** Media files and static assets
+
+## Setup and Installation
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/yourusername/gitsights.git
+    cd gitsights
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Variables:**
+    Create a `.env` file in the root directory and add your GitHub Personal Access Token to increase the API rate limit:
+    ```env
+    VITE_GITHUB_TOKEN=your_github_token_here
+    ```
+
+4.  **Run Development Server:**
+    ```bash
+    npm run dev
+    ```
+
+## Building for Production
+
+To create a production-ready build, run:
+
+```bash
+npm run build
+```
+
+This will generate optimized static files in the `dist` directory, ready for deployment.
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
